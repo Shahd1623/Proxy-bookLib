@@ -3,12 +3,14 @@ package com.proxy.servlets;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+
+
+
 import java.util.List;
 
 import com.proxy.core.Book;
@@ -36,7 +38,7 @@ public class BookServlet extends HttpServlet {
     @Override
     public void init() {
         // Retrieve or construct DatabaseConfig with appropriate credentials
-        DatabaseConfig config = new DatabaseConfig("jdbc:mysql://localhost:3306/bookstore1", "root", "root");
+        DatabaseConfig config = new DatabaseConfig("jdbc:mysql://127.0.0.1:3306/bookstore1", "root", "root");
         DatabaseConnection dbConnection = new MySqlDatabaseConnection(config);
         bookDao = new BookDaoImpl(dbConnection);
     }
